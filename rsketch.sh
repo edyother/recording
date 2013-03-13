@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# I use this to help with getting down ideas when I'm writing music. 
+# ./rsketch.sh [ songname ]
+
+TIME=$(date +%Y-%m-%d_%T)
+NAME=$TIME"$1"
+clear
+figlet RECORDING
+figlet "$1"
+echo "CTRL+C to stop"
+rec $TIME.ogg
+sox $TIME.ogg $NAME.ogg trim 0.2 gain -n -1
+rm $TIME.ogg
+clear
+ls -1 *.ogg
