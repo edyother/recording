@@ -10,8 +10,13 @@ clear
 figlet RECORDING
 figlet "$1"
 echo "CTRL+C to stop"
-rec ./$1/$TIME.ogg
-sox ./$1/$TIME.ogg ./$1/$NAME.ogg trim 0.2 gain -n -1
-rm ./$1/$TIME.ogg
+rec $1/$TIME.ogg
+echo "Keep [y/n]"
+read KEEP
+if [ $KEEP = y ]
+  then
+  sox $1/$TIME.ogg $1/$NAME.ogg trim 0.2 highpass 90 compand 0.3,0.8 6:-50,-50,-30 -3 -90 0.3 gain -n -3 gain -n -1
+fi
+rm $1/$TIME.ogg
 clear
-ls -1 ./$1/*.ogg
+ls -1 $1/*.ogg
