@@ -3,18 +3,32 @@
 # I use this to help with getting down ideas when I'm writing music. 
 # ./rsketch.sh [ songname ]
 
+# set variables
 TIME=$(date +%Y-%m-%d_%T)
 NAME=$TIME"$1"
+
+# Make directory if necessary
 mkdir -p $1
+
+# Record Audio
 clear
 figlet RECORDING
 figlet "$1"
-echo "CTRL+C to stop"
+echo "-----------------"
+echo "| CTRL+C to stop |"
+echo "-----------------"
 rec $1/$TIME.ogg
-echo "Discard and Record Again = d"
-echo "Discard and Exit = ENTER"
-echo "Keep and Record Again = k"
-echo "Keep and Exit = kx"
+
+# Options After Recoring
+echo "--------------------------"
+echo "Keep & Rec New           k"
+echo "--------------------------"
+echo "Keep & Exit              x"
+echo "--------------------------"
+echo "Discard & Rec New        d"
+echo "--------------------------"
+echo "Discard & Exit       ENTER"
+echo "--------------------------"
 read C
 if [ $C = k ]
   then
