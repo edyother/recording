@@ -14,9 +14,9 @@ mkdir -p $1
 clear
 figlet RECORDING
 figlet "$1"
-echo "-----------------"
+echo " ----------------"
 echo "| CTRL+C to stop |"
-echo "-----------------"
+echo " ----------------"
 rec $1/$TIME.ogg
 
 # Options After Recoring
