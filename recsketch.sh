@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# I use this to help with getting down ideas when I'm writing music. 
+# I use this to help with getting down ideas when I'm writing music.
 # ./rsketch.sh [ songname ]
 
 # set variables
